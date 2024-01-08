@@ -27,6 +27,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-southeast-2
 
+      - name: Install Dependencies
+        run: |
+          npm install
+
       - name: Deploy app
         run: npx sst deploy --stage prod
 
