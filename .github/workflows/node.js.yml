@@ -20,14 +20,14 @@ jobs:
         with:
           node-version: 18
 
-      - name: Deploy SST app
-        uses: quenginedev/sst-deploy@main
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
         env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        with:
-          stage: 'prod'
+      
+      - run: npx sst deploy --stage prod
 
 
 # name: SST workflow
