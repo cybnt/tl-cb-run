@@ -28,7 +28,7 @@ jobs:
             AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
             # ANY OTHER ENVS can go here
         with:
-          path: '/.sst'
+          path: '.sst'
           pkg-manager: 'yarn'
           stage: 'prod'
 
